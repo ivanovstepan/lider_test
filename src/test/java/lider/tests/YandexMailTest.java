@@ -10,7 +10,6 @@ import utils.ENV;
 
 import static org.testng.Assert.assertEquals;
 
-
 public class YandexMailTest extends BaseWebTest {
 
     LoginPage loginPage = new LoginPage();
