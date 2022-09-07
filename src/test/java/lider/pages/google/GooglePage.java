@@ -7,7 +7,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
 import lider.pages.AbstractPage;
 import org.openqa.selenium.Keys;
-import utils.ENV;
+import utils.EnvConfig;
 import utils.WaitUtils;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class GooglePage implements AbstractPage {
 
-    private final static String URL = ENV.googleUrl;
+    private final static String URL = EnvConfig.googleUrl;
     private final static SelenideElement searchField = Selenide.$x("//input[@name='q']");
     private final static SelenideElement nextPage = Selenide.$x("//a[contains(@href,'search')]//span[text()='Next']");
     private final static ElementsCollection resultLinks = Selenide.$$x("//div[@id='search']//div[@data-header-feature]/div/a");
@@ -23,8 +23,7 @@ public class GooglePage implements AbstractPage {
     @Override
     @Step("Check if 'login' page is loaded")
     public boolean isPageLoaded() {
-        boolean result = WebDriverRunner.getWebDriver().getCurrentUrl().contains(URL);
-        return result;
+        return WebDriverRunner.getWebDriver().getCurrentUrl().contains(URL);
     }
 
     @Step("Navigate to 'login' Page")
@@ -33,6 +32,7 @@ public class GooglePage implements AbstractPage {
         return getPage();
     }
 
+    @Step("Wait for page loaded")
     public static GooglePage getPage() {
         WaitUtils.waitElementToBeVisible(searchField);
         return new GooglePage();

@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lider.pages.AbstractPage;
-import utils.WaitUtils;
 
 public class PassportYandexPage implements AbstractPage {
 
@@ -18,11 +17,6 @@ public class PassportYandexPage implements AbstractPage {
     @Step("Check if 'login' page is loaded")
     public boolean isPageLoaded() {
         return mail.isDisplayed();
-    }
-
-    public static PassportYandexPage getPage() {
-        WaitUtils.waitElementToBeVisible(mail);
-        return new PassportYandexPage();
     }
 
     @Step("Navigate to 'login' Page")

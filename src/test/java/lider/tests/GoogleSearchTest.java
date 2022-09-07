@@ -1,6 +1,5 @@
 package lider.tests;
 
-import lider.BaseWebTest;
 import lider.pages.google.GooglePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,8 +16,7 @@ public class GoogleSearchTest extends BaseWebTest {
 
     @BeforeClass
     public void searchValue() {
-        googlePage.navigateToPage()
-                .search(searchValue);
+        googlePage.navigateToPage().search(searchValue);
     }
 
     @Test

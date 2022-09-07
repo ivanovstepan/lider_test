@@ -8,7 +8,7 @@ import models.ResponseSingleUser;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import utils.ENV;
+import utils.EnvConfig;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
@@ -20,15 +20,14 @@ public class ReqresTest {
     Response response;
 
     @BeforeClass
-    public void execureRequest() {
-        response =
-                given()
-                        .baseUri(ENV.reqresUrl)
-                        .basePath(path)
-                        .contentType(ContentType.JSON)
-                        .log()
-                        .all()
-                        .request(Method.GET);
+    public void executeRequest() {
+        response = given()
+                .baseUri(EnvConfig.reqresUrl)
+                .basePath(path)
+                .contentType(ContentType.JSON)
+                .log()
+                .all()
+                .request(Method.GET);
     }
 
     @Test

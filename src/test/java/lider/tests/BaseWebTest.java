@@ -1,6 +1,5 @@
-package lider;
+package lider.tests;
 
-import lider.pages.yandex.LoginPage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utils.DriverUtils;

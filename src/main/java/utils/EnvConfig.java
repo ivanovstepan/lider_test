@@ -1,8 +1,6 @@
 package utils;
 
-import java.util.UUID;
-
-public class ENV {
+public class EnvConfig {
 
     public static final String yandexUrl;
     public static final String login;

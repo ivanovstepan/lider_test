@@ -22,7 +22,6 @@ public class WaitUtils {
         waitElementToBeVisible(element, DEFAULT_TIMEOUT);
         return element;
     }
-
     public static WebElement waitElementToBeVisible(WebElement element, Duration timeout) {
         new WebDriverWait(WebDriverRunner.getWebDriver(), timeout)
                 .until(ExpectedConditions.visibilityOf(element));
